@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>House Price Predictoion</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for('static',filename='images/icons/download.png') }}" />
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}" >
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animate/animate.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/util.css') }}">
+	<link rel= "stylesheet" type= "text/css" href="{{ url_for('static',filename='css/main.css') }}">
+<!--===============================================================================================-->
+
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form id="form_pred" class="contact100-form validate-form" method="post" action="/result">
+				<span class="contact100-form-title">
+					House Price Prediction
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Number of rooms is required">
+					<span class="label-input100">Rooms</span>
+					<input class="input100" type="text" id="Rooms" name="Rooms" placeholder="0-50">
+					<span class="focus-input100"></span>
+                </div>
+                
+                <div class="wrap-input100 input100-select">
+					<span class="label-input100">Type</span>
+					<div>
+						<select class="selection-2" id="Type" name="Type">
+							<option value=1>House,cottage </option>
+							<option value=3>Unit </option>
+							<option value=2>Town-house</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+                </div>
+                
+                <div class="wrap-input100 input100-select">
+					<span class="label-input100">Method</span>
+					<div>
+						<select class="selection-2" id="Method" name="Method">
+							<option value=2>Property Sold </option>
+							<option value=4>Property Sold Prior </option>
+							<option value=1>Property passed in</option>
+							<option value=5>Vendor Bid</option>
+							<option value=3 selected>Sold After Auction </option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 validate-input" data-validate="Distance is required">
+					<span class="label-input100">Distance from CBD in Kms</span>
+					<input class="input100" type="text" id="Distance" name="Distance" placeholder="kms">
+					<span class="focus-input100"></span>
+                </div>
+                
+
+                <div class="wrap-input100 validate-input" data-validate="Number of Bedrooms is required">
+					<span class="label-input100">Number of bedrooms</span>
+					<input class="input100" type="text" id="Bedroom2" name="Bedroom2" placeholder="0-50">
+					<span class="focus-input100"></span>
+                </div>
+                
+                <div class="wrap-input100 validate-input" data-validate="Number of Bathrooms is required">
+					<span class="label-input100">Number of bathrooms</span>
+					<input class="input100" type="text" id="Bathroom" name="Bathroom" placeholder="0-50">
+					<span class="focus-input100"></span>
+                </div>
+                
+                <div class="wrap-input100 validate-input" data-validate="Number of Cars is required">
+					<span class="label-input100">Number of Cars</span>
+					<input class="input100" type="text" id="Car" name="Car" placeholder="0-50">
+					<span class="focus-input100"></span>
+                </div>
+                
+                <div class="wrap-input100 validate-input" data-validate="Landsize is required">
+					<span class="label-input100">Landsize</span>
+					<input class="input100" type="text" id="Landsize" name="Landsize" placeholder="0-1000">
+					<span class="focus-input100"></span>
+                </div>
+
+
+                <div class="wrap-input100 input100-select">
+					<span class="label-input100">Council Area</span>
+					<div>
+						<select class="selection-2" id="CouncilArea" name="CouncilArea">
+							<option value=32>Yarra </option>
+							<option value=22>Moonee Valley </option>
+							<option value=26>Port Phillip</option>
+							<option value=7>Darebin</option>
+							<option value=11 selected>Hobsons Bay </option>
+							<option value=27>Stonnington</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+                
+                <div class="wrap-input100 validate-input" data-validate="Lattitude is required">
+					<span class="label-input100">Latitude</span>
+					<input class="input100" type="text" id="Lattitude" name="Lattitude" placeholder="-200-0">
+					<span class="focus-input100"></span>
+                </div>
+                
+                <div class="wrap-input100 validate-input" data-validate="Longtitude is required">
+					<span class="label-input100">Longtitude</span>
+					<input class="input100" type="text" id="Longtitude" name="Longtitude" placeholder="0-300">
+					<span class="focus-input100"></span>
+                </div>
+                
+                <div class="wrap-input100 input100-select">
+					<span class="label-input100">Region name</span>
+					<div>
+						<select class="selection-2" id="Regionname" name="Regionname">
+							<option value=3>Northern Metropolitan </option>
+							<option value=7>Western Metropolitan </option>
+							<option value=6>Southern Metropolitan</option>
+							<option value=1>Eastern Metropolitan</option>
+							<option value=5 selected>South-Eastern Metropolitan </option>
+                            <option value=2>Eastern Victoria</option>
+                            <option value=4>Northern Victoria</option>
+                            <option value=8>Western Victoria</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+                </div>
+                
+                <div class="wrap-input100 validate-input" data-validate="Propertycount is required">
+					<span class="label-input100">Number of Property in the Suburb</span>
+					<input class="input100" type="text" id="Propertycount" name="Propertycount" placeholder="0-10000">
+					<span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Month sold is required">
+					<span class="label-input100">Month Sold</span>
+					<input class="input100" type="text" id="month" name="month" placeholder="1-12">
+					<span class="focus-input100"></span>
+                </div>
+
+
+
+				
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button id="predict" class="contact100-form-btn">
+							<span>
+								How much does the house cost? 
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/select2/select2.min.js') }}"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/daterangepicker/moment.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+	<!-- include sweetAlert plugin -->
+	<script src="{{ url_for('static',filename='js/sweetalert2.all.js') }}"></script>
+	<script type="text/javascript">
+		$(function () {
+	        $("button#predict").click(function(e){
+	        	e.preventDefault();
+	        	/*Get for variabes*/
+	        	var Rooms = $("#Rooms").val(), Type = $("#Type").val(), Method = $("#Method").val();
+				var Distance = $("#Distance").val(), Bedroom2 = $("#Bedroom2").val();
+				var Bathroom = $("#Bathroom").val(), Car = $("#Car").val();
+				var Landsize = $("#Landsize").val(), CouncilArea = $("#CouncilArea").val();
+				var Lattitude = $("#Lattitude").val(), Longtitude = $("#Longtitude").val();
+				var Regionname = $("#Regionname").val(), Propertycount = $("#Propertycount").val();
+				var month = $("#month").val();
+	        	/*create the JSON object*/
+	        	var data = {'Rooms':Rooms, 'Type':Type, 'Method':Method, 'Distance':Distance,
+				'Bedroom2':Bedroom2, 'Bathroom':Bathroom,'Car':Car,'Landsize':Landsize,
+				'CouncilArea':CouncilArea,'Lattitude':Lattitude,'Longtitude':Longtitude,
+				'Regionname':Regionname,'Propertycount':Propertycount, 'month':month}
+	        	/*send the ajax request*/
+	        	$.ajax({
+	        		method : "POST",
+	        		url : window.location.href + 'result',
+	        		data : $('form').serialize(),
+	        		success : function(result){
+	        			var json_result = JSON.parse(result);
+	        			var price = json_result['price'];
+	        			swal('Estimated price of the House is '+price+' AUD', '','success')
+	        		},
+	        		error : function(){
+	        			console.log("error")
+	        		}
+	        	})
+	        })
+	    
+		});
+	</script>
+</body>
+</html>
